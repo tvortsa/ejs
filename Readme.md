@@ -5,41 +5,41 @@ Embedded JavaScript templates.
 [![Build Status](https://travis-ci.org/visionmedia/ejs.png)](https://travis-ci.org/visionmedia/ejs)
 
 - - -
-NOTE: Version 2 of EJS makes some breaking changes with this version (notably,
-removal of the filters feature).  Work on v2 is happening here:
+NOTE: Версия 2 EJS Вносит некоторые изменения в эту версию (особенно,
+удаление фильтров).  Работа над v2 ведется здесь:
 https://github.com/mde/ejs
 
-File issues for EJS v2 here: https://github.com/mde/ejs/issues
+Файлы проблемм EJS v2 здесь: https://github.com/mde/ejs/issues
 - - -
 
-## Installation
+## Установка
 
     $ npm install ejs
 
-## Features
+## Фичи
 
-  * Complies with the [Express](http://expressjs.com) view system
-  * Static caching of intermediate JavaScript
-  * Unbuffered code for conditionals etc `<% code %>`
-  * Escapes html by default with `<%= code %>`
-  * Unescaped buffering with `<%- code %>`
-  * Supports tag customization
-  * Filter support for designer-friendly templates
+  * Совместима с системой видов [Express](http://expressjs.com)
+  * Статическое кэширование промежуточного JavaScript
+  * Небуферизованный код для условных выражений etc `<% code %>`
+  * Экранирование html по умолчанию с `<%= code %>`
+  * Неэкранированная буферизация по умолчанию с `<%- code %>`
+  * Поддержка тегов
+  * Поддержка фильтров для дизайнерских шаблонов
   * Includes
   * Client-side support
-  * Newline slurping with `<% code -%>` or `<% -%>` or `<%= code -%>` or `<%- code -%>`
+  * Новая строка с slurping with `<% code -%>` or `<% -%>` or `<%= code -%>` or `<%- code -%>`
 
-## Example
+## Пример
 
     <% if (user) { %>
 	    <h2><%= user.name %></h2>
     <% } %>
     
-## Try out a live example now
+## Посмотрите живой пример
 
 <a href="https://runnable.com/ejs" target="_blank"><img src="https://runnable.com/external/styles/assets/runnablebtn.png" style="width:67px;height:25px;"></a>
 
-## Usage
+## Использование
 
     ejs.compile(str, options);
     // => Function
@@ -47,7 +47,7 @@ File issues for EJS v2 here: https://github.com/mde/ejs/issues
     ejs.render(str, options);
     // => str
 
-## Options
+## Опции
 
   - `cache`           Compiled functions are cached, requires `filename`
   - `filename`        Used by `cache` to key caches
@@ -61,11 +61,11 @@ File issues for EJS v2 here: https://github.com/mde/ejs/issues
 
 ## Includes
 
- Includes are relative to the template with the `include` statement,
- for example if you have "./views/users.ejs" and "./views/user/show.ejs"
- you would use `<% include user/show %>`. The included file(s) are literally
- included into the template, _no_ IO is performed after compilation, thus
- local variables are available to these included templates.
+ Includes ссылаются на шаблоны в операторе `include` ,
+ например если у вас есть "./views/users.ejs" и "./views/user/show.ejs"
+ вы можете использовать `<% include user/show %>`. Это вставит файл(ы)
+ буквально вставит template, _no_ IO выполняется после компиляции, 
+ таким образом для этих включенных шаблонов доступны локальные переменные.
 
 ```
 <ul>
@@ -75,9 +75,9 @@ File issues for EJS v2 here: https://github.com/mde/ejs/issues
 </ul>
 ```
 
-## Custom delimiters
+## Пользовательские разделители
 
-Custom delimiters can also be applied globally:
+Пользовательские разделители также могут применяться глобально:
 
     var ejs = require('ejs');
     ejs.open = '{{';
@@ -87,18 +87,18 @@ Which would make the following a valid template:
 
     <h1>{{= title }}</h1>
 
-## Filters
+## Фильтры
 
-EJS conditionally supports the concept of "filters". A "filter chain"
-is a designer friendly api for manipulating data, without writing JavaScript.
+EJS условно поддерживает концепцию "filters". "filter chain"
+то удобный для дизайнеров api для манипуляций данными, без написания JavaScript.
 
-Filters can be applied by supplying the _:_ modifier, so for example if we wish to take the array `[{ name: 'tj' }, { name: 'mape' },  { name: 'guillermo' }]` and output a list of names we can do this simply with filters:
+Фильтры могут применяться, by supplying модификатору _:_ , так например если мы хотим получить массив `[{ name: 'tj' }, { name: 'mape' },  { name: 'guillermo' }]` и вывести список имен мы можем сделать это простым фильтром:
 
-Template:
+Шаблон:
 
     <p><%=: users | map:'name' | join %></p>
 
-Output:
+Вывод:
 
     <p>Tj, Mape, Guillermo</p>
 
@@ -116,9 +116,9 @@ Or perhaps capitalize the first user's name for display:
 
     <p><%=: users | first | capitalize %></p>
 
-## Filter list
+## Список фильтров
 
-Currently these filters are available:
+Доступные на сегодня фильтры:
 
   - first
   - last
@@ -155,9 +155,9 @@ ejs.filters.last = function(obj) {
 
 ## Layouts
 
-  Currently EJS has no notion of blocks, only compile-time `include`s,
-  however you may still utilize this feature to implement "layouts" by
-  simply including a header and footer like so:
+  В настоящий момент EJS не имеет понятия блоков, только compile-time `include`s,
+  Однако вы все равно можете использовать эту функцию для реализации «макетов» 
+  просто включая верхний и нижний колонтитулы::
 
 ```html
 <% include head %>
