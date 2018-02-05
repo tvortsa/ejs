@@ -1,6 +1,6 @@
 # EJS
 
-Embedded JavaScript templates.
+Embedded JavaScript шаблоны.
 
 [![Build Status](https://travis-ci.org/visionmedia/ejs.png)](https://travis-ci.org/visionmedia/ejs)
 
@@ -35,29 +35,29 @@ https://github.com/mde/ejs
 	    <h2><%= user.name %></h2>
     <% } %>
     
-## Посмотрите живой пример
+## Посмотрите 
 
-<a href="https://runnable.com/ejs" target="_blank"><img src="https://runnable.com/external/styles/assets/runnablebtn.png" style="width:67px;height:25px;"></a>
+[живой пример](https://runnable.com/ejs" target="_blank"><img src="https://runnable.com/external/styles/assets/runnablebtn.png" style="width:67px;height:25px;)
 
 ## Использование
 
     ejs.compile(str, options);
-    // => Function
+    // => Функция
 
     ejs.render(str, options);
-    // => str
+    // => строка
 
 ## Опции
 
-  - `cache`           Compiled functions are cached, requires `filename`
-  - `filename`        Used by `cache` to key caches
-  - `scope`           Function execution context
+  - `cache`           Скомпилированные функции кэшируются, требуется `filename`
+  - `filename`        Используется `cache` для ключа caches
+  - `scope`           Контекст выполнения функции
   - `debug`           Output generated function body
   - `compileDebug`    When `false` no debug instrumentation is compiled
-  - `client`          Returns standalone compiled function
-  - `open`            Open tag, defaulting to "<%"
-  - `close`           Closing tag, defaulting to "%>"
-  - *                 All others are template-local variables
+  - `client`          Возвращает standalone скомпилированной функции
+  - `open`            Открывающий тэг, по умолчанию "<%"
+  - `close`           Закрывающий тэг, по-умолчанию "%>"
+  - *                 все остальные template-local переменные
 
 ## Includes
 
@@ -112,7 +112,7 @@ Render call:
         ]
     });
 
-Or perhaps capitalize the first user's name for display:
+Или капитализировать имя первого пользователя при выводе:
 
     <p><%=: users | first | capitalize %></p>
 
@@ -143,9 +143,9 @@ Or perhaps capitalize the first user's name for display:
   - reverse
   - get:'prop'
 
-## Adding filters
+## Добавление фильтров
 
- To add a filter simply add a method to the `.filters` object:
+ Для добавления фильтров просто добавьте метод к объекту `.filters` :
  
 ```js
 ejs.filters.last = function(obj) {
@@ -153,7 +153,7 @@ ejs.filters.last = function(obj) {
 };
 ```
 
-## Layouts
+## Макеты
 
   В настоящий момент EJS не имеет понятия блоков, только compile-time `include`s,
   Однако вы все равно можете использовать эту функцию для реализации «макетов» 
@@ -168,7 +168,7 @@ ejs.filters.last = function(obj) {
 
 ## client-side support
 
-  include `./ejs.js` or `./ejs.min.js` and `require("ejs").compile(str)`.
+  include `./ejs.js` or `./ejs.min.js` и `require("ejs").compile(str)`.
 
 ## License 
 
